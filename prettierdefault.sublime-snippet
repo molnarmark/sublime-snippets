@@ -1,0 +1,13 @@
+<snippet>
+  <content><![CDATA[
+{
+  "singleQuote": true,
+  "tabWidth": 2,
+  "semi": true,
+  "printWidth": 150,
+  "bracketSpacing": true
+}
+]]></content>
+  <tabTrigger>prettierdefault</tabTrigger>
+  <scope>source.json</scope>
+</snippet>

@@ -1,0 +1,32 @@
+<snippet>
+	<content><![CDATA[
+.DEFAULT_GOAL := all
+
+TARGET = main
+LIBS = -lm
+CC = gcc
+CFLAGS = -g -Wall
+
+.PHONY: default
+
+default: \$(TARGET)
+all: clean default
+
+OBJECTS = \$(patsubst src/%.c, src/%.o, \$(wildcard src/*.c))
+HEADERS = \$(wildcard src/*.h)
+
+%.o: src/%.c \$(HEADERS)
+		\$(CC) \$(CFLAGS) -c \$< -o \$@
+
+.PRECIOUS: \$(TARGET) \$(OBJECTS)
+
+\$(TARGET): \$(OBJECTS)
+		\$(CC) \$(OBJECTS) -Wall \$(LIBS) -o \$@
+
+clean:
+		-rm -f *.o
+		-rm -f \$(TARGET)
+]]></content>
+	<tabTrigger>makefile</tabTrigger>
+	<scope>source.makefile</scope>
+</snippet>
